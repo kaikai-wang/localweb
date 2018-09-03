@@ -1,0 +1,9 @@
+.table-container{
+    background: #FFFFFF;
+    border: #A5A5A5 solid 1px;
+    border-radius: 5px;
+}
+.main-table{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}

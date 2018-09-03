@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}登录{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/login_register.css')}}">
+{% endblock %}
+{% block main %}
+<div class="container">
+    <h3 class="text-center" style="margin-bottom: 20px">请登录</h3>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 main-container">
+            {% for msg in get_flashed_messages() %}
+            <div class="alert alert-warning text-center dismissable">
+                <button class="close" type="button" aria-hidden="true" data-dismiss="alert">
+                    &times;
+                </button>
+                {{msg}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 form-container">
+            <form action="" method="post" class="form-horizontal main-form">
+                <div class="form-group">
+                    <label for="username" class="control-label col-md-2">用户名</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="username" placeholder="请输入用户名"
+                               name="username" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label col-md-2">密码</label>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" id="password" placeholder="请输入密码"
+                               name="password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-2 text-right">
+                        <button class="btn btn-default" type="reset">清空</button>
+                        <button class="btn btn-primary" type="submit">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

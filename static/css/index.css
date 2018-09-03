@@ -1,0 +1,25 @@
+.content-container{
+    background: #FFF;
+    margin: 20px 0;
+    padding:15px 20px;
+    border: #A5A5A5 1px solid;
+    border-radius: 10px;
+    min-height: 150px;
+    max-height: 250px;
+    overflow: auto;
+    position: relative;
+    box-shadow: #DDDDDD 5px 5px 5px;
+}
+.content-info{
+    font-size: smaller;
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    margin-top: 10px;
+}
+.ip-container{
+    height: 150px;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+}

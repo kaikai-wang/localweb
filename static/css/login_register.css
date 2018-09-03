@@ -1,0 +1,10 @@
+.form-container{
+    background: #FFFFFF;
+    border: grey solid 1px;
+    border-radius: 10px;
+    box-shadow: #A5A5A5 5px 5px 5px;
+}
+.main-form{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

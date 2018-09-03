@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}个人信息{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/user.css')}}">
+{% endblock %}
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 table-container">
+            <div class="table-responsive">
+                <table class="table table-striped main-table table-hover">
+                    <caption>个人信息</caption>
+                    <tbody>
+                    <tr class="success">
+                        <td>用户名</td>
+                        <td>{{user.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>手机号</td>
+                        <td>{{user.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>邮箱</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>性别</td>
+                        <td>{{user.sex}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
