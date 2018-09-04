@@ -9,7 +9,7 @@ class Article(db.Model):
     content = db.Column(db.Text, nullable=False)
     create_time = db.Column(db.DateTime, nullable=False)
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    author = db.relationship('User', backref=db.backref('articles'))
+    author = db.relationship('User', backref=db.backref('articles', order_by=create_time.desc()))
 
 
 class User(db.Model):
