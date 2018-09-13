@@ -1,16 +1,21 @@
 # _*_ coding: utf-8 _*_
 from flask_sqlalchemy import SQLAlchemy
 import re
+from flask import flash
 
 db = SQLAlchemy()
 
 
 def allowed_password(pwd):
+    if not 6 <= len(pwd) <= 20:
+        flash('密码长度不合法，应在6-20个字符之间')
+        return False
     pattern = re.compile('[a-zA-Z0-9_]+')
     match = re.match(pattern, pwd)
     if match and len(match.group()) == len(pwd):
         return True
     else:
+        flash('密码包含非法字符')
         return False
 
 

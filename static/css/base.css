@@ -1,5 +1,8 @@
 body{
-    background: #F9F9F9;
+    background: #F3F3F3;
+}
+#main{
+    margin-top: 50px;
 }
 .navbar{
     margin-bottom: 5px;

@@ -19,11 +19,15 @@
     <div class="navbar-left">
         <ul class="nav navbar-nav nav-list1">
             <li><a href="/">留言首页</a></li>
-            <li class="active">
+            <li>
                 <a href="{{url_for('write')}}">
-                    <span class="glyphicon glyphicon-pencil"> 写留言</span>
+                    <span class="glyphicon glyphicon-pencil"></span> 写留言
                 </a>
             </li>
+            {% if session.get('username') %}
+            <li><a href="{{url_for('my_messages')}}">我的留言</a></li>
+            {% endif %}
+            <li><a href="{{url_for('today_messages')}}">今日留言</a></li>
             <li><a href="http://www.kaikaiwang.xin">博客首页</a></li>
         </ul>
     </div>
@@ -37,7 +41,7 @@
                     <li><a href="{{url_for('user_page')}}">个人信息</a></li>
                     <li><a href="{{url_for('my_messages')}}">我的留言</a></li>
                     <li class="divider"></li>
-                    <li><a href="{{url_for('logout')}}">注销</a></li>
+                    <li><a href="{{url_for('logout')}}" onclick="return confirm('确认退出登录')">退出</a></li>
                 </ul>
             </li>
             {% else %}
@@ -47,20 +51,15 @@
         </ul>
     </div>
 </nav>
-<ul class="breadcrumb">
-    <li><a href="/">全部留言</a></li>
-    <li><a href="{{url_for('my_messages')}}">我的留言</a></li>
-    <li><a href="{{url_for('today_messages')}}">今日留言</a></li>
-</ul>
-{% block main %}{% endblock %}
+<div id="main">{% block main %}{% endblock %}</div>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?1a5e809c6fcfa7046f6632950d82b2d0";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?1a5e809c6fcfa7046f6632950d82b2d0";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 </body>
 </html>

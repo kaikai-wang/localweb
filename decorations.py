@@ -23,3 +23,15 @@ def not_login_confirm(func):
         else:
             abort(404)
     return decoration
+
+
+def is_admin(func):
+    @wraps(func)
+    def decoration(*args, **kwargs):
+        if session.get('username', None) == 'admin':
+            return func(*args, **kwargs)
+        else:
+            flash('没有访问权限')
+            return redirect(url_for('index'))
+    return decoration
+

@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
-{% block title %}今日最新{% endblock %}
+{% block title %}我的留言{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 {% endblock %}
 {% block main %}
 <div class="container">
     <div class="row">
-        <h3 class="text-center">今日所有留言</h3>
         <div class="col-md-8 col-md-offset-2 main-container">
+            <h3 class="text-center">我的所有留言</h3>
             {% if not articles %}
             <div class="well">
-                今天还没有人留言，请到<a href="{{url_for('write')}}">写留言</a>页面发表一条留言。
+                你还未发表过留言，请到<a href="{{url_for('write')}}">写留言</a>页面发表一条留言。
             </div>
             {% else %}
             <ul class="list-unstyled">
@@ -18,14 +18,7 @@
                 <li class="content-container">
                     <div><a class="content" href="{{url_for('detail', id=article.id)}}">{{article.content}}</a></div>
                     <div class="content-info pull-bottom">
-                        <span class="author">此留言由
-                        {% if article.author_id %}
-                            <a href="{{url_for('other_user', id=article.author_id)}}">{{article.author.name}}</a>
-                        {% else %}
-                            一位匿名的小朋友
-                        {% endif %}
-                        发表于 {{article.create_time}}
-                        </span>
+                        <span class="author">此留言发表于 {{article.create_time}}</span>
                     </div>
                 </li>
                 {% endfor %}

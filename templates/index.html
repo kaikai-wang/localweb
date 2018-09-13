@@ -22,11 +22,11 @@
             <ul class="list-unstyled">
                 {% for article in articles %}
                 <li class="content-container">
-                    <div class="content">{{article.content}}</div>
+                    <div><a href="{{url_for('detail', id=article.id)}}" class="content">{{article.content}}</a></div>
                     <div class="content-info pull-bottom">
                         <span class="author">此留言由
                         {% if article.author_id %}
-                            {{article.author.name}}
+                            <a href="{{url_for('other_user', id=article.author_id)}}">{{article.author.name}}</a>
                         {% else %}
                             一位匿名的小朋友
                         {% endif %}

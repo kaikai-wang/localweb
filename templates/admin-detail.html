@@ -1,0 +1,44 @@
+{% extends 'admin-base.html' %}
+{% block title %}留言详情{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/detail.css')}}">
+{% endblock %}
+{% block main %}
+<h1 class="text-center">留言详情管理</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 main">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>id</td>
+                    <td>{{article.id}}</td>
+                </tr>
+                <tr>
+                    <td>author</td>
+                    <td>{{article.author.name}}</td>
+                </tr>
+                <tr>
+                    <td>author id</td>
+                    <td>{{article.author.id}}</td>
+                </tr>
+                <tr>
+                    <td>author sex</td>
+                    <td>{{article.author.sex}}</td>
+                </tr>
+                <tr class="success">
+                    <td>content</td>
+                    <td id="content">{{article.content}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <a href="#" class="btn btn-default">Edit</a>
+                <a href="{{url_for('admin.admin_delete', id=article.id)}}" class="btn btn-default"
+                   onClick="return confirm('确定删除?');">Delete</a>
+                <a href="{{url_for('admin.admin_index')}}" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

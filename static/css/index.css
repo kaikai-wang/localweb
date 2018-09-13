@@ -1,6 +1,6 @@
 .content-container{
     background: #FFF;
-    margin: 20px 0;
+    margin-bottom: 20px;
     padding:15px 20px;
     border: #A5A5A5 1px solid;
     border-radius: 10px;
@@ -8,7 +8,7 @@
     max-height: 250px;
     overflow: auto;
     position: relative;
-    box-shadow: #DDDDDD 5px 5px 5px;
+    box-shadow: #B6B6B6 5px 5px 5px;
 }
 .content-info{
     font-size: smaller;
@@ -17,9 +17,12 @@
     bottom: 15px;
     margin-top: 10px;
 }
-.ip-container{
-    height: 150px;
-    border-radius: 10px;
-    margin: 10px 0;
-    text-align: center;
+a.content{
+    white-space: pre-line;
+    text-decoration: none;
+    color: #333;
 }
+/*a.content:hover{*/
+    /*text-decoration: none;*/
+    /*color: black;*/
+/*}*/

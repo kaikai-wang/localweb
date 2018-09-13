@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}首页{% endblock %}
+{% block title %}用户留言{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 {% endblock %}
@@ -7,10 +7,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 main-container">
-            <h3 class="text-center">我的所有留言</h3>
+            <h3 class="text-center">用户留言</h3>
             {% if not articles %}
             <div class="well">
-                你还未发表过留言，请到<a href="{{url_for('write')}}">写留言</a>页面发表一条留言。
+                该用户未发表过留言
             </div>
             {% else %}
             <ul class="list-unstyled">
@@ -18,7 +18,7 @@
                 <li class="content-container">
                     <div class="content">{{article.content}}</div>
                     <div class="content-info pull-bottom">
-                        <span class="author">此留言发表于 {{article.create_time}}</span>
+                        <span class="author">此留言由<a href="{{url_for('other_user', id=article.author_id)}}">{{article.author.name}}</a>发表于 {{article.create_time}}</span>
                     </div>
                 </li>
                 {% endfor %}
